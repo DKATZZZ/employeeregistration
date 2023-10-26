@@ -17,6 +17,15 @@ button {
   padding: 8px 12px;
 }
 
+body {
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+
 @media (max-width: 600px) {
   /* Adjust styles for smaller screens if necessary */
 }
