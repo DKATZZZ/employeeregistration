@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {addEmployee} from '../services/apiservice';
-
+import '../components/employeeregistration.css';
 
 function EmployeeForm() {
 
@@ -34,7 +34,13 @@ function EmployeeForm() {
         setformdata({
           name: '',
           email: '',
-          position: ''
+          Designation: '',
+          EmployeeId:'',
+          BloodGroup:'',
+          Salary:'',
+          Project:'',
+          phone:''
+
         });
       } catch (error) {
         setSubmitStatus({
@@ -46,51 +52,70 @@ function EmployeeForm() {
     };
   
     return (
-      <div>
+      <div className="form-container">
+        <h1>Employee Registration</h1>
       <form onSubmit={handleSubmit}>
-      <input
-        value={formdata.name}
-        onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
-        placeholder="Name"
-      />
-      <input
-        value={formdata.email}
-        onChange={(e) => setformdata({ ...formdata, email: e.target.value })}
-        placeholder="Email"
-      />
-      <input
-        value={formdata.position}
-        onChange={(e) => setformdata({ ...formdata, position: e.target.value })}
-        placeholder="Position"
-      />
-      <input
-        value={formdata.EmployeeId}
-        onChange={(e) => setformdata({ ...formdata, EmployeeId: e.target.value })}
-        placeholder="employeeid"
-      />
-      <input 
-        value={formdata.BloodGroup}
-        onChange={(e) => setformdata({...formdata, BloodGroup:e.target.value})}
-        placeholder='bloodgroup'
-      />
-       <input 
-        value={formdata.Salary}
-        onChange={(e) => setformdata({...formdata, Salary:e.target.value})}
-        placeholder='salary'
-      />
-       <input 
-        value={formdata.Project}
-        onChange={(e) => setformdata({...formdata, Project:e.target.value})}
-        placeholder='project'
-      />
-      <input 
-        value={formdata.phone}
-        onChange={(e) => setformdata({...formdata, phone:e.target.value})}
-        placeholder='phone'
-      />
+        <div>
+          <input
+              value={formdata.name}
+              onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
+              placeholder="Name"
+            />
+        </div>
+        <div>
+            <input
+              value={formdata.email}
+              onChange={(e) => setformdata({ ...formdata, email: e.target.value })}
+              placeholder="Email"
+            />
+        </div>
+        <div>
+          <input
+            value={formdata.position}
+            onChange={(e) => setformdata({ ...formdata, position: e.target.value })}
+            placeholder="Position"
+          />
+        </div>
+       <div>
+        <input
+          value={formdata.EmployeeId}
+          onChange={(e) => setformdata({ ...formdata, EmployeeId: e.target.value })}
+          placeholder="employeeid"
+        />
+        </div>
+       <div>
+          <input 
+            value={formdata.BloodGroup}
+            onChange={(e) => setformdata({...formdata, BloodGroup:e.target.value})}
+            placeholder='bloodgroup'
+          />
+        </div>
+        <div>
+          <input 
+            value={formdata.Salary}
+            onChange={(e) => setformdata({...formdata, Salary:e.target.value})}
+            placeholder='salary'
+          />
+         </div>
+        <div>
+          <input 
+            value={formdata.Project}
+            onChange={(e) => setformdata({...formdata, Project:e.target.value})}
+            placeholder='project'
+          />
+        </div>
+        <div>
+          <input 
+            value={formdata.phone}
+            onChange={(e) => setformdata({...formdata, phone:e.target.value})}
+            placeholder='phone'
+          />
+          </div>
 
-
-      <button type="submit">Add Employee</button>
+          <div>
+          <button type="submit">Add Employee</button>
+          </div>
+        
 
       </form>
       {submitStatus.success && <p style={{ color: 'green' }}>{submitStatus.message}</p>}
